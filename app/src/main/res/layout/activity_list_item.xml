@@ -16,24 +16,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:foregroundGravity="center"
-            android:gravity="center"
             android:text="TextView"
             android:textColor="#E91E63"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textStyle="normal"
             android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/txt_nama"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:foregroundGravity="center"
-            android:gravity="center"
             android:text="TextView"
             android:textColor="#E91E63"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textStyle="normal"
             android:layout_weight="1"/>
 
         <TextView
@@ -42,10 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:foregroundGravity="center"
-            android:gravity="center"
             android:textColor="#E91E63"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textStyle="normal"
             android:layout_weight="1"
             android:text="TextView" />
     </LinearLayout>
