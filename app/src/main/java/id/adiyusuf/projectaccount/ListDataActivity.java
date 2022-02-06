@@ -1,12 +1,16 @@
 package id.adiyusuf.projectaccount;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -25,16 +29,26 @@ public class ListDataActivity extends AppCompatActivity implements AdapterView.O
     ListView list_view;
     private String JSON_STRING;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data);
+
+        getSupportActionBar().setTitle("Data Account");
 
         // menampilkan list view
         list_view = findViewById(R.id.list_view);
         list_view.setOnItemClickListener(this);
 
         getJSON();
+    }
+
+    // menampilkan option menu pada toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation_item, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void getJSON() {
@@ -121,5 +135,18 @@ public class ListDataActivity extends AppCompatActivity implements AdapterView.O
         String accId = map.get(Konfigurasi.TAG_JSON_ID).toString();
         myIntent.putExtra(Konfigurasi.ACC_ID, accId);
         startActivity(myIntent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_exit:
+                finish();
+                System.exit(0);
+                break;
+            default:
+                Toast.makeText(this, "No Menu is selected", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
