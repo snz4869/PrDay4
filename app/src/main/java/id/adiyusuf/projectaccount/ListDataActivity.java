@@ -3,6 +3,7 @@ package id.adiyusuf.projectaccount;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -87,10 +88,12 @@ public class ListDataActivity extends AppCompatActivity implements AdapterView.O
                 JSONObject object = result.getJSONObject(i);
                 String id = object.getString(Konfigurasi.TAG_JSON_ID);
                 String name = object.getString(Konfigurasi.TAG_JSON_NAMA_DPN);
+                String rek = object.getString(Konfigurasi.TAG_JSON_REK);
 
                 HashMap<String,String> account = new HashMap<>();
                 account.put(Konfigurasi.TAG_JSON_ID,id);
                 account.put(Konfigurasi.TAG_JSON_NAMA_DPN,name);
+                account.put(Konfigurasi.TAG_JSON_REK,rek);
                 //ubah json ke array list
                 list.add(account);
             }
@@ -102,14 +105,21 @@ public class ListDataActivity extends AppCompatActivity implements AdapterView.O
         ListAdapter adapter = new SimpleAdapter(
                 getApplicationContext(),list,
                 R.layout.activity_list_item,
-                new String[]{Konfigurasi.TAG_JSON_ID,Konfigurasi.TAG_JSON_NAMA_DPN},
-                new int[]{R.id.txt_id,R.id.txt_nama}
+                new String[]{Konfigurasi.TAG_JSON_ID,Konfigurasi.TAG_JSON_NAMA_DPN,Konfigurasi.TAG_JSON_REK},
+                new int[]{R.id.txt_id,R.id.txt_nama,R.id.txt_rek}
         );
         list_view.setAdapter(adapter);
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // ketika salah satu list dipilih
+        // detail: ID, Name, Desg, Salary
+        Intent myIntent = new Intent(ListDataActivity.this,
+                ListDetailDataActivity.class);
+        HashMap<String, String> map = (HashMap) parent.getItemAtPosition(position);
+        String accId = map.get(Konfigurasi.TAG_JSON_ID).toString();
+        myIntent.putExtra(Konfigurasi.ACC_ID, accId);
+        startActivity(myIntent);
     }
 }

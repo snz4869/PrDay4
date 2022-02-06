@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ProjectAccount"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ListDetailDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListDataActivity"
             android:exported="false" />
         <activity
