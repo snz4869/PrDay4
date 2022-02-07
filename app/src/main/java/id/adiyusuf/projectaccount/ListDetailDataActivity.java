@@ -79,7 +79,27 @@ public class ListDetailDataActivity extends AppCompatActivity {
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit();
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ListDetailDataActivity.this);
+                alertDialogBuilder.setMessage("Update Data");
+
+                alertDialogBuilder.setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                edit();
+                            }
+                        });
+
+                alertDialogBuilder.setNegativeButton("No",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
         });
 
@@ -132,27 +152,8 @@ public class ListDetailDataActivity extends AppCompatActivity {
 
         Edit ed = new Edit();
         ed.execute();
+        startActivity(new Intent(ListDetailDataActivity.this, ListDataActivity.class));
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ListDetailDataActivity.this);
-        alertDialogBuilder.setMessage("Update Data");
-
-        alertDialogBuilder.setPositiveButton("Yes",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
-        alertDialogBuilder.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(ListDetailDataActivity.this, ListDataActivity.class));
-                    }
-                });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
 
     private void delete() {
