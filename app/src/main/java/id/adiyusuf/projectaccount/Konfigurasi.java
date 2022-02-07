@@ -11,7 +11,7 @@ public class Konfigurasi {
     // key and value json yang muncul di browser
     public static final String KEY_ACC_ID = "id";
     public static final String KEY_ACC_NAMA_DPN = "nama_depan";
-    public static final String KEY_ACC_NAMA_BLK = "nama_belakng";
+    public static final String KEY_ACC_NAMA_BLK = "nama_belakang";
     public static final String KEY_ACC_ALAMAT = "alamat";
     public static final String KEY_ACC_REK = "no_rekening";
     public static final String KEY_ACC_STATUS = "status";

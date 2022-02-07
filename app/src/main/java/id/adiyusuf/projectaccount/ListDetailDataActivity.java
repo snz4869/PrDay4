@@ -48,7 +48,6 @@ public class ListDetailDataActivity extends AppCompatActivity {
         id = receiveIntent.getStringExtra(Konfigurasi.ACC_ID);
         edit_id.setText(id);
 
-        getJSON();
 
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +82,9 @@ public class ListDetailDataActivity extends AppCompatActivity {
                 edit();
             }
         });
+
+        getJSON();
+
     }
 
     private void edit() {
