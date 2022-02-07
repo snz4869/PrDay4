@@ -5,8 +5,8 @@ public class Konfigurasi {
     public static final String URL_GET_ALL = "http://192.168.92.102/pegawai/tampilSemuaAccount.php";
     public static final String URL_GET_DETAIL = "http://192.168.92.102/pegawai/tampilAccount.php?id=";
     //public static final String URL_ADD = "http://192.168.92.102/pegawai/tambahPgw.php";
-    //public static final String URL_UPDATE = "http://192.168.92.102/pegawai/updatePgw.php";
-    //public static final String URL_DELETE = "http://192.168.92.102/pegawai/hapusPgw.php";
+    public static final String URL_UPDATE = "http://192.168.92.102/pegawai/updateAcc.php?id=";
+    public static final String URL_DELETE = "http://192.168.92.102/pegawai/hapusAcc.php?id=";
 
     // key and value json yang muncul di browser
     public static final String KEY_ACC_ID = "id";
